@@ -1,14 +1,19 @@
 # 🌦 Weather App
 
-A simple Python CLI app to get weather using OpenWeather API.
+A Python CLI application to fetch real-time weather data using OpenWeather API.
 
-## Features
-- Get temperature, humidity, weather
-- Error handling
+## 🚀 Features
+- 🌡 Temperature in Celsius
+- 🌥 Weather description
+- 💧 Humidity info
+- ❌ Error handling for invalid city/API
 
-## Run
-pip install requests
+## 🛠 Tech Used
+- Python
+- Requests Library
+- OpenWeather API
+
+## ▶️ How to Run
+```bash
+pip install -r requirements.txt
 python weather.py
-
-## Note
-Add your API key in code.

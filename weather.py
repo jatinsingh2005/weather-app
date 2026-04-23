@@ -1,22 +1,26 @@
 import requests
 
-API_KEY = "93b53e9147d5c03f089fa8228e86d17f"
+API_KEY = "YOUR_API_KEY"
 
-city = input("Enter city name: ")
+city = input("Enter city name: ").strip().title()
 
 url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
 
-response = requests.get(url)
-data = response.json()
-print(data)
+try:
+    response = requests.get(url)
+    data = response.json()
+except:
+    print("Network error ❌")
+    exit()
+
 if str(data["cod"]) != "200":
-    print("Error:", data)
+    print("Invalid city or API issue ❌")
 else:
     temp = data["main"]["temp"]
     weather = data["weather"][0]["description"]
     humidity = data["main"]["humidity"]
 
-    print(f"\nCity: {city}")
-    print(f"Temperature: {temp}°C")
-    print(f"Weather: {weather}")
-    print(f"Humidity: {humidity}%")
+    print("\n🌍 City:", city)
+    print("🌡 Temperature:", temp, "°C")
+    print("🌥 Weather:", weather)
+    print("💧 Humidity:", humidity, "%")
